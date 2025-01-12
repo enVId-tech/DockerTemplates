@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  creative-sandbox:
+    image: itzg/minecraft-server
+    container_name: creative-sandbox
+    volumes:
+      - /mnt/nvme-pool/etran/Minecraft-Servers/Velocity-Network/creative-sandbox:/data
+    environment:
+      TYPE: PAPER
+      VERSION: 1.21.1
+      EULA: "TRUE"
+      INIT_MEMORY: 6G
+      MAX_MEMORY: 12G
+      SERVER_PORT: 25572
+      ONLINE_MODE: false
+      PORT: 25572
+      
+    networks:
+      - velocity-network
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+volumes:
+  data:
+  
+networks:
+  velocity-network:
+    external: true

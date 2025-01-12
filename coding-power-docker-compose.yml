@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  coding-power:
+    ports:
+      - 3080:3080
+    container_name: coding-power
+    image: envidtech/coding-power:latest
+    volumes:
+      - /mnt/main/AppData/Websites:/CodingPower
+networks: {}

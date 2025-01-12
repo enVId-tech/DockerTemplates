@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  personal-forge-server:
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    environment:
+      TYPE: FORGE
+      VERSION: 1.18.2
+      EULA: "TRUE"
+      INIT_MEMORY: 1G
+      MAX_MEMORY: 8G
+      FORGE_VERSION: 40.2.21
+      SERVER_PORT: 25567
+    volumes:
+      - /mnt/nvme-pool/etran/Minecraft-Servers/Other-Servers/PersonalForgeServer:/data
+    ports:
+      - 25567:25567
+networks: {}

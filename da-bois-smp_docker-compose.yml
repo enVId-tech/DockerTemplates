@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  da-bois-smp:
+    image: itzg/minecraft-server
+    container_name: da-bois-smp
+    volumes:
+      - /mnt/nvme-pool/etran/Minecraft-Servers:/daboissmp
+    environment:
+      TYPE: FORGE
+      VERSION: 1.20.1
+      EULA: "TRUE"
+      INIT_MEMORY: 2G
+      MAX_MEMORY: 16G
+      SERVER_PORT: 25566
+      ENABLE_WHITELIST: true
+      ONLINE_MODE: true
+      WHITELIST: enVIdTech, WarmcuAn, AtariLynx, TacticalNukes
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    #   expose: 
+    #      - 3000
+    ports:
+      - 25566:25566
+networks: {}

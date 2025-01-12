@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  safety-test:
+    ports:
+      - 3040:3040
+    volumes:
+      - /:/mnt/main/AppData/Websites/SafetyTest
+    container_name: safety-test
+    image: envidtech/safety-test:latest
+networks: {}

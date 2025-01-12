@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  etran-dev-urls:
+    ports:
+      - 3090:3000
+    container_name: etran-dev-urls
+    image: envidtech/etrandevurls
+    volumes:
+      - /mnt/main/AppData/Websites:/etran-dev-urls
+networks: {}

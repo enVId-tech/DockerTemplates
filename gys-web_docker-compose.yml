@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  gys-web:
+    ports:
+      - 3070:3070
+    container_name: gys-web
+    image: envidtech/gys
+    volumes:
+      - /mnt/main/AppData/Websites:/GYSWeb
+networks: {}

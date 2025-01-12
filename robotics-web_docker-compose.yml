@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  robotics-web:
+    ports:
+      - 3001:3000
+    container_name: robotics-web
+    image: envidtech/robotics-web:latest
+    volumes:
+      - /mnt/main/AppData/Websites/RoboticsWeb:/data
+networks: {}

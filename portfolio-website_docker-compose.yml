@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  portfolio-website:
+    ports:
+      - 3000:3000
+    container_name: portfolio-website
+    image: envidtech/portfolio-website:latest
+    volumes:
+      - /mnt/main/AppData/Websites/PortfolioWebsite:/data
+networks: {}

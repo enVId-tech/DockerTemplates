@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  gun-city:
+    image: itzg/minecraft-server
+    container_name: gun-city
+    volumes:
+      - /mnt/nvme-pool/etran/Minecraft-Servers/Velocity-Network/gun-city:/data
+    environment:
+      TYPE: PAPER
+      VERSION: 1.20.6
+      EULA: "TRUE"
+      INIT_MEMORY: 2G
+      MAX_MEMORY: 4G
+      SERVER_PORT: 25575
+      ONLINE_MODE: false
+      PORT: 25575
+    networks:
+      - velocity-network
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+volumes:
+  data:
+  
+networks:
+  velocity-network:
+    external: true

@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  mclobby:
+    image: itzg/minecraft-server
+    container_name: mclobby
+    volumes:
+      - /mnt/nvme-pool/etran/Minecraft-Servers/Velocity-Network/velocity-lobby:/data
+    environment:
+      TYPE: PURPUR
+      VERSION: 1.21.4
+      EULA: "TRUE"
+      INIT_MEMORY: 1G
+      MAX_MEMORY: 2G
+      SERVER_PORT: 25570
+      ONLINE_MODE: false
+      PORT: 25570
+      LEVEL_TYPE: "minecraft:flat"
+      
+    networks:
+      - velocity-network
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+volumes:
+  data:
+  
+networks:
+  velocity-network:
+    external: true

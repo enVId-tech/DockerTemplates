@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  proxy:
+    image: itzg/mc-proxy
+    environment:
+      TYPE: VELOCITY
+      DEBUG: "false"
+      ENABLE_RCON: "true"
+      MEMORY: "512M"
+    ports:
+      - "25565:25565"
+      - "19132:19132/udp"
+    networks:
+      - velocity-network
+    volumes:
+      - /mnt/nvme-pool/etran/Minecraft-Servers/Velocity-Network/velocity:/server
+      
+networks:
+  velocity-network:
+    # to simplify sharing-by-name with across projects
+    name: velocity-network

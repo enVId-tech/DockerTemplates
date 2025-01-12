@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  bedwars:
+    image: itzg/minecraft-server
+    container_name: bedwars
+    volumes:
+      - /mnt/nvme-pool/etran/Minecraft-Servers/Velocity-Network/bedwars:/data
+    environment:
+      TYPE: PAPER
+      VERSION: 1.12.2
+      EULA: "TRUE"
+      INIT_MEMORY: 1G
+      MAX_MEMORY: 3G
+      SERVER_PORT: 25574
+      PORT: 25574
+      
+    networks:
+      - velocity-network
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+volumes:
+  data:
+  
+networks:
+  velocity-network:
+    external: true

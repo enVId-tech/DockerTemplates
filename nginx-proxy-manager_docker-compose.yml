@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  app:
+    image: jc21/nginx-proxy-manager:latest
+    restart: unless-stopped
+    ports:
+      # These ports are in format <host-port>:<container-port>
+      - 80:80 # Public HTTP Port
+      - 443:443 # Public HTTPS Port
+      - 81:81 # Admin Web Port
+      # Add any other Stream port you want to expose
+      # - '21:21' # FTP
+
+      # Uncomment the next line if you uncomment anything in the section
+    environment:
+      # Uncomment this if you want to change the location of
+      # the SQLite DB file within the container
+      # DB_SQLITE_FILE: "/data/database.sqlite"
+
+      # Uncomment this if IPv6 is not enabled on your host
+      DISABLE_IPV6: "true"
+    volumes:
+      # Change these to whatever folder you want to host 
+      # Nginx Proxy Manager in, left of colon is the 
+      # local folder (don't change this), and right of 
+      # colon is your system path that you want
+      - ./data:/mnt/main/AppData/Nginx-Proxy-Manager/data
+      - ./letsencrypt:/etc/letsencrypt
+networks: {}

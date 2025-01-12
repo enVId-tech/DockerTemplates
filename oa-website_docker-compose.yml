@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  oa-website:
+    ports:
+      - 3030:3030
+    volumes:
+      - /mnt/main/AppData/Websites:/OAWebsite
+    container_name: oa-website
+    image: envidtech/oa-website:latest
+networks: {}

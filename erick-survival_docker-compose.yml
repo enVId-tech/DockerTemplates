@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  erick-survival:
+    image: itzg/minecraft-server
+    container_name: erick-survival
+    volumes:
+      - /mnt/nvme-pool/etran/Minecraft-Servers/Velocity-Network/erick-survival:/data
+    environment:
+      TYPE: PURPUR
+      VERSION: 1.21.4
+      EULA: "TRUE"
+      INIT_MEMORY: 6G
+      MAX_MEMORY: 12G
+      SERVER_PORT: 25571
+      ENABLE_WHITELIST: true
+      ENFORCE_WHITELIST: true
+      ONLINE_MODE: false
+      PORT: 25571
+      SEED: 7291687873035611528
+      WHITELIST: |
+        Javajazzy
+        Arachnite_
+        enVIdTech
+        WarmcuAn
+        AtariLynx
+        TacticalNukes
+        nonkulos
+        smartToaster_
+        SugarDames
+      EXISTING_WHITELIST_FILE: SYNC_FILE_MERGE_LIST
+      
+    networks:
+      - velocity-network
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    ports:
+      - 8123:8123
+volumes:
+  data:
+  
+networks:
+  velocity-network:
+    external: true

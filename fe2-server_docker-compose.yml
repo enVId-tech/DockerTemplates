@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  fe2-server:
+    image: itzg/minecraft-server
+    container_name: fe2-server
+    volumes:
+      - /mnt/nvme-pool/etran/Minecraft-Servers/Velocity-Network/fe2-server:/data
+    environment:
+      TYPE: PAPER
+      VERSION: 1.21.3
+      EULA: "TRUE"
+      INIT_MEMORY: 1G
+      MAX_MEMORY: 3G
+      SERVER_PORT: 25573
+      ONLINE_MODE: false
+      PORT: 25573
+    networks:
+      - velocity-network
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+volumes:
+  data:
+  
+networks:
+  velocity-network:
+    external: true
